@@ -206,7 +206,11 @@
         isFiltered = false;
         dualListbox.elements['select'+selectIndex].append($item.clone(true).prop('selected', $item.data('_selected')));
       }
-      allOptions.eq($item.data('original-index')).data('filtered'+selectIndex, isFiltered);
+      // allOptions.eq($item.data('original-index')).data('filtered'+selectIndex, isFiltered);
+      var originalIndex = $item.data('original-index');
+      allOptions.filter(function(index, originalItem) {
+        return $(originalItem).data('original-index') === originalIndex;
+      }).data('filtered'+selectIndex, isFiltered);
     });
 
     refreshInfo(dualListbox);
@@ -216,7 +220,11 @@
     var options = dualListbox.element.find('option');
     dualListbox.elements['select'+selectIndex].find('option').each(function(index, item) {
       var $item = $(item);
-      options.eq($item.data('original-index')).data('_selected', $item.prop('selected'));
+      // options.eq($item.data('original-index')).data('_selected', $item.prop('selected'));
+      var originalIndex = $item.data('original-index');
+      options.filter(function(index, originalItem) {
+        return $(originalItem).data('original-index') === originalIndex;
+      }).data('_selected', $item.prop('selected'));
     });
   }
 
