@@ -12,6 +12,7 @@
   "trailing": true,
   "unused": true,
   "node": true,
+  "esversion": 9,
   "globals": {
     "$": true,
     "jQuery": true
