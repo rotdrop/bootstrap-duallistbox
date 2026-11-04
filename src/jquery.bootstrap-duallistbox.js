@@ -174,7 +174,7 @@
     }
 
     try {
-      regex = new RegExp($.trim(dualListbox.elements['filterInput'+selectIndex].val()), 'gi');
+      regex = new RegExp(dualListbox.elements['filterInput'+selectIndex].val().trim(), 'gi');
     }
     catch(e) {
       // a regex to match nothing
