@@ -341,13 +341,13 @@
   }
 
   function bindEvents(dualListbox) {
-    dualListbox.elements.form.submit(function(e) {
+    dualListbox.elements.form.on('submit', function(e) {
       if (dualListbox.elements.filterInput1.is(':focus')) {
         e.preventDefault();
-        dualListbox.elements.filterInput1.focusout();
+        dualListbox.elements.filterInput1.trigger('focusout');
       } else if (dualListbox.elements.filterInput2.is(':focus')) {
         e.preventDefault();
-        dualListbox.elements.filterInput2.focusout();
+        dualListbox.elements.filterInput2.trigger('focusout');
       }
     });
 
